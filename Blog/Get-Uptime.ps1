@@ -1,4 +1,4 @@
 #
-#   Author Paolo Frigo, www.scriptinglibrary.com
+#   Paolo Frigo, www.scriptinglibrary.com
 #
 Get-CimInstance -ClassName win32_operatingsystem | Select-Object LastBootUpTime
