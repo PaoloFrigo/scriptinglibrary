@@ -23,7 +23,7 @@ function Get-PowerOption{
      .Example 
           get-adcomputer -searchbase ‘OU=Computers,dc=contoso,dc=com’ -filter * -property * | select-object name  | Get-PowerOption
 
-          Get-PowerOption for all the workstation in AD.
+          Get-PowerOption for all the workstations in AD.
 
       .Notes
             Author: Paolo Frigo - paolofrigo@gmail.com
