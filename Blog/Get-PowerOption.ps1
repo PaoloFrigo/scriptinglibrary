@@ -21,7 +21,7 @@ function Get-PowerOption{
           Power Scheme GUID: db310065-829b-4671-9647-2261c00e86ef  (High Performance (ConfigMgr))
           WARNING: *** Stopping WinRM service on box1
      .Example 
-          get-adcomputer -searchbase ‘OU=workstations,dc=contoso,dc=com’ -filter * -property * | select name  | Get-PowerOption
+          get-adcomputer -searchbase ‘OU=Computers,dc=contoso,dc=com’ -filter * -property * | select-object name  | Get-PowerOption
 
           Get-PowerOption for all the workstation in AD.
 
