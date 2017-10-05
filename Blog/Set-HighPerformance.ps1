@@ -32,7 +32,7 @@ function Set-HighPerformance
         .Example 
             get-adcomputer -searchbase ‘OU=Computers,dc=contoso,dc=com’ -filter * -property * | select-object name  | Set-HighPerformance
  
-            Set-HighPerformance for all the workstation in AD.
+            Set-HighPerformance for all the workstations in AD.
  
         .Notes
               Author: Paolo Frigo - paolofrigo@gmail.com
