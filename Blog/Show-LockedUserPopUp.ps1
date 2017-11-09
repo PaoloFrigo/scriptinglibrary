@@ -1,7 +1,7 @@
 #
 #   Paolo Frigo, www.scriptinglibrary.com
 #
-header="".ToUpper()
+$header="".ToUpper()
 $footer=" This message will close automatically in $TimeOut seconds.".ToUpper()
 $NameList = ""
 $TimeOut = 15 #seconds
