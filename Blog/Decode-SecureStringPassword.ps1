@@ -9,7 +9,10 @@
    get-credential | dssp
 .EXAMPLE
    Decode-SecureStringPassword -password SecureString
-.AUTHOR paolofrigo@gmail.com , 2018 https://www.scriptinglibrary.com
+
+.Notes
+    Author: Paolo Frigo - paolofrigo@gmail.com , https://www.scriptinglibrary.com
+ 
 #>
 function Decode-SecureStringPassword
 {
