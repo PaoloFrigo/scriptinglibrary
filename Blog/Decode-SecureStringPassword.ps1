@@ -1,4 +1,4 @@
-﻿<#
+<#
 .Synopsis
    Tries to decode a SecureString and returns its clear text value
 .DESCRIPTION
