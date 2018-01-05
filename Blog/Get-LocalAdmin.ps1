@@ -22,7 +22,7 @@ function Get-LocalAdmin {
              Get Local admin list for all the workstation in AD.
  
         .Notes
-              Author: Paolo Frigo - paolofrigo@gmail.com
+              Author: Paolo Frigo - paolofrigo@gmail.com ,  https://www.scriptinglibrary.com
  
  #>
     param (
