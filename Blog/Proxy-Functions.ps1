@@ -5,7 +5,7 @@
     Modify proxy settings for the current user.
 
 .DESCRIPTION
-    Modify proxy settings for the current user modifing the windows registry.
+    Modify proxy settings for the current user modifying the windows registry.
 
 .EXAMPLE
     Get the proxy settings for the current user
