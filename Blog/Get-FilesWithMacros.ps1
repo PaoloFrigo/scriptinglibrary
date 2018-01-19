@@ -21,7 +21,7 @@
 
    gfwm "d:\" | Export-CSV "Report_D_drive_macros.csv"
 
-.NOTE
+.NOTES
    Author Paolo Frigo, paolofrigo@gmail.com  https://www.scriptinglibrary.com
 #>
 function Get-FilesWithMacros {
@@ -30,7 +30,7 @@ function Get-FilesWithMacros {
     [OutputType([string])]
     Param
     (
-        # Param1 help description
+        # Folder Name
         [Parameter(Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             Position = 0)]
