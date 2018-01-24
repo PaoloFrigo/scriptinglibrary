@@ -38,7 +38,7 @@ def RemoveExcessiveLinebreak(lineofcontent):
 def ProcessInput(inputfile):
     """ This function accepts an input path for the httpd conf file, searchs
         for 'include' and replaces it with the matchin content of the included
-        file, add start and end comments and remove all other comments or
+        file, add starts and end comments and removes all other comments or
         spaces. """
     content = ''
     if logging.root.isEnabledFor(logging.DEBUG):
