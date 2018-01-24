@@ -86,8 +86,8 @@ if __name__ == "__main__":
     USERSARGS = PARSER.parse_args()
     try:
         serverroot = os.path.dirname(USERSARGS.apacheconf)
-        content = ProcessInput(args.apacheconf)
-    except FileNotFoundError as e:
+        content = ProcessInput(USERSARGS.apacheconf)
+    except Exception as e:
         logging.error("Failed to process " +
                       USERSARGS.apacheconf, exc_info=True)
         exit(1)
