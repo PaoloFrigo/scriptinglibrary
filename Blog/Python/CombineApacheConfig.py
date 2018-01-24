@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # CombineApacheConfig.py 
 
-__author__ = 'ben', 'paolofrigo@gmail.com'
+__author__ = 'ben', 'PAOLO FRIGO, paolofrigo@gmail.com | www.scriptinglibrary.com'
 import sys, os, os.path, logging, fnmatch, re, argparse
 
 def ProcessMultipleFiles(InputFiles):
@@ -61,9 +61,9 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG, format='[%(asctime)s][%(levelname)s]:%(message)s')
     parser=argparse.ArgumentParser(
     description="""DESCRIPTION: This script will combine your APACHE httpd.conf with all included files into one.""",
-    epilog="""Author :Ben, Paolo Frigo, paolofrigo@gmail.com """)
-    parser.add_argument('--apacheconf', required=True, default="/etc/httpd/conf/httpd.conf", help='SPECIFY YOUR FILE PATH.  i.e. /etc/httpd/conf/httpd.conf')
-    parser.add_argument('--combinedconf', required=True, default="/tmp/httpd.combined.conf", help='SPECIFY YOUR OUTPUT FILE WITH THE COMBINED CONF FILE. i.e. /tmp/httpd.combined.conf')
+    epilog="""Author :Ben, Paolo Frigo""")
+    parser.add_argument('--apacheconf', required=True, default="/etc/httpd/conf/httpd.conf", help='SPECIFY YOUR HTTPD/APACHE CONF FILE PATH.  i.e. /etc/httpd/conf/httpd.conf')
+    parser.add_argument('--combinedconf', required=True, default="/tmp/httpd.combined.conf", help='SPECIFY YOUR OUTPUT FILE. i.e. /tmp/httpd.combined.conf')
     args=parser.parse_args()
 
     try:
