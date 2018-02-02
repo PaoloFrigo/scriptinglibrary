@@ -15,8 +15,12 @@ for %%x in (%*) do (
     mkdir output   
     mkdir output\\%%~nx
     for %%e in (%list%) do ( 
-        mkdir output\\_%%e
+        mkdir output\\_%%e 
         pandoc %%x -o output/_%%e/%%~nx.%%e
         pandoc %%x -o output/%%~nx/%%~nx.%%e
     )
+    :: Keep a copy of the MarkDown File. 
+    mkdir output\\_md
+    copy %%x output\_md\
+    copy %%x output\%%~nx\
 )
