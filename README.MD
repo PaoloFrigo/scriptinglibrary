@@ -1,6 +1,8 @@
 
 This repository is a collection of scripts published on [SCRIPTING LIBRARY](http://www.scriptinglibrary.com) and created by Paolo Frigo. 
 
+![scriptinglibrary logo](Media/mini_logo.png)
+
 ## SCRIPTING LIBRARY
 Scripting Library is a collection of scripts and experiences shared by IT Pros, Developers, DevOps and Geeks across Linux and Windows OS with BaSH, PowerShell and Python from all over the world.
 
