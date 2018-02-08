@@ -10,6 +10,7 @@ from smtplib import SMTP
 MAILSERVER = "your.mailserver.com"
 PORT = 25
 DEBUG_MODE = False
+RFC_LINK = r"https://goo.gl/9hYJQg"
 
 if __name__ == "__main__":
 
@@ -34,10 +35,11 @@ if __name__ == "__main__":
     try:
         with SMTP(host=USERSARGS.mailserver, port=USERSARGS.port) as smtp:
             logging.info('Connecting to {}:{}'.format(USERSARGS.mailserver,
-                         USERSARGS.port))
-            print(smtp.verify(USERSARGS.emailaddress))
+                                                      USERSARGS.port))
+            result = smtp.verify(USERSARGS.emailaddress)
+            print("SMTP CODE: {} \nMESSAGE: {}".format(*result))
+            logging.info('RFC1893, SMTP CODES: {}'.format(RFC_LINK))
             logging.info('Connection closed ')
     except:
         logging.error("Failed to connect to {}:{}".format(USERSARGS.mailserver,
                                                           USERSARGS.port))
-        exit(1)
