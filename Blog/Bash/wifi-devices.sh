@@ -1,7 +1,7 @@
 ​#!/bin/bash
 
 #  
-# This scripts uses and requires NMAP, creates a report with all host connected to the SUBNET
+# This scripts uses and requires NMAP, creates a report with all hosts connected to the SUBNET
 #
 # author: paolofrigo@gmail.com , https://www.scriptinglibrary.com 
 
