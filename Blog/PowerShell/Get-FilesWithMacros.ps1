@@ -2,12 +2,12 @@
 
 <#
 .Synopsis
-    Get all office document with Macros
+    Get all office documents with Macros
 .DESCRIPTION
-    Get all office document with Macros
+    Get all office documents with Macros
 .EXAMPLE
-    Get a list of all documents with macros saved on a specific folder (in case SHARED FOLDER needs to be mapped in advance) 
-    and format the result as a table.
+    Get a list of all documents with macros saved on a specific folder (in case SHARED FOLDER needs 
+    to be mapped in advance) and format the result as a table.
     
     PS D:\> Get-FilesWithMacros "d:\" | ft
 
