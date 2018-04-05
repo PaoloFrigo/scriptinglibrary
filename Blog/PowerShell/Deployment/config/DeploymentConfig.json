@@ -1,0 +1,25 @@
+{
+    "info": {
+        "Version": "1.0.0",
+        "Date" : "04/04/2018"
+    },
+    "project": {
+        "name": "MyPlayground"
+    },
+    "environment": {
+        "type": "PROD"
+    },
+    "artefacts":[
+        {     
+            "uri" :"https://raw.githubusercontent.com/PaoloFrigo/scriptinglibrary/master/Blog/PowerShell/Proxy-Functions.ps1",
+            "filename": "Proxy-Functions.ps1",
+            "description": "Proxy Functions, Latest Release"
+        },
+        {
+            "uri": "https://raw.githubusercontent.com/PaoloFrigo/scriptinglibrary/master/Blog/PowerShell/Set-HighPerformance.ps1",
+            "filename": "Set-HighPerformance.ps1",
+            "description": "Set-HighPerformance, Latest Release"
+        }
+
+    ]
+}
