@@ -3,14 +3,13 @@
 function Compress-Folder {
     <#
     .SYNOPSIS        
-        Compress a folder and remove the directory if needed.
+        Compress a folder and then it removes the directory if needed.
     
     .DESCRIPTION
         This function is a wrapper of Compress-Archive for PowerShell versions greater or equal to 5 or
         if not it leverages ZipFile class from .NET Framework to achieve the same result providing backward 
         compatibility.  If RemoveDirWhenFinished parameter is set to $True the target directory will be 
         removed after compression.
-        
 
     .PARAMETER FolderName
         FolderName parameter is required to specify which folder you want to compress
