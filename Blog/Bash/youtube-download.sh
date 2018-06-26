@@ -1,12 +1,17 @@
 #!/bin/bash
-video_list="video.txt"
+#author: Paolo Frigo, https://www.scriptinglibrary.com
+video_list="videos.txt"
 total=$(wc -l $video_list | awk '{ print $1 }')
 counter=0
+help="Please, install it: 
+'sudo apt-get install youtube-dl' or 
+'brew install youtube-dl'
+for more info: https://github.com/rg3/youtube-dl"
 
 if command -v youtube-dl >/dev/null 2>&1 ; then
 	    echo "$(date) Download Started..."
 	else
-	    echo "youtube-dl not found. Please, install it: 'sudo apt-get install youtube-dl'"
+	    echo "youtube-dl not found. $help"
 	    exit
 fi
 
