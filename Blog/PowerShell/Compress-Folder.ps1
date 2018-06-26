@@ -8,6 +8,8 @@ function Compress-Folder {
         
     .PARAMETER FolderName
 
+    .PARAMETER RemoveDirWhenFinished
+
     .EXAMPLE
         Compress-Folder  -FolderName  "/Users/paolofrigo/Documents/scriptinglibrary/Blog/PowerShell/tmp"
         
@@ -17,28 +19,36 @@ function Compress-Folder {
     #>
         [CmdletBinding()]  # Add cmdlet features.
         Param (
-            [Parameter(Mandatory=$True)]
+            [Parameter(Mandatory=$True,Position=1,ValueFromPipeline=$True,ValueFromPipelineByPropertyName=$True)]
+            [Alias("Name")]
             [string]$FolderName,
-            $destination = "$FolderName.zip"
+            [Parameter(Mandatory=$False)]            
+            [bool]$RemoveDirWhenFinished = $False
             )
     
         Begin {
-            $PSVersion = $PSVersionTable.PSVersion.Major   
+            $PSVersion = $PSVersionTable.PSVersion.Major
+            $Destination = "$pwd\($FolderName).zip"               
         } 
 
         Process {
-            if ($PSVersion -gt 5 ){
-                Compress-Archive -Path $FolderName -DestinationPath $destination
+            if ($PSVersion -ge 5 ){
+                Compress-Archive -Path $FolderName -DestinationPath $Destination
             } 
             else {
-                If(Test-path $destination) {
-                    Remove-Item $destination -confirm
+                If(Test-path $Destination) {
+                    Remove-Item $Destination -confirm
                 }
                 Add-Type -assembly "system.io.compression.filesystem"
-                [io.compression.zipfile]::CreateFromDirectory($FolderName, $destination) 
+                Write-Output "$FolderName, $Destination"
+                [io.compression.zipfile]::CreateFromDirectory($FolderName,$Destination)                 
             }
         } 
         End {
-            Write-Verbose "Archive Created: $destination"
+            Write-Output "--- $RemoveDirWhenFinished $FolderName"
+            if ($RemoveDirWhenFinished -eq $True){
+                Remove-Item  -Path $FolderName -Recurse 
+            }
+            Write-Verbose "Archive Created: $Destination"
         } 
     }
