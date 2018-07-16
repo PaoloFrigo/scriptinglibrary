@@ -15,7 +15,7 @@
     172.16.0.10
 
 .EXAMPLE
-    C:\PS> "172.16.0.*" | Get-AvailableIP 
+    C:\PS> "172.16.0.*" | Get-AvailableIP
     172.16.0.9
     172.16.0.10
 
@@ -32,22 +32,19 @@
     Author:  Paolo Frigo, https://www.scriptinglibrary.com
 #>
 
-function Find-AvailableIP {   
-   
-    [CmdletBinding(SupportsShouldProcess = $true)]
+function Find-AvailableIP {
+    [CmdletBinding()]
     [OutputType([string])]
 
     param(
         #check if the IP Address belong to a private class A,B or C
         [parameter(ValueFromPipeline, Mandatory = $true)]
-        [ValidateScript( {$_ -match "^(10\.|172\.16\.|192\.168\.|)[0-9.]*(\*$)"})]   
-        [string] 
-        $Network 
+        [ValidateScript( {$_ -match "^(10\.|172\.16\.|192\.168\.|)[0-9.]*(\*$)"})]
+        [string]
+        $Network
     )
 
     Begin {
-        
-     
     }
     Process {
         $counter = 0
@@ -56,15 +53,14 @@ function Find-AvailableIP {
         foreach ($IP in $IPs) {
             $counter += 1
             $IpAddress = $Network.Replace("*", $IP)
-            Write-Progress -activity "Testing subnet $Network" -status "$IpAddress" -PercentComplete (($counter / ($IPs.Length)) * 100)           
+            Write-Progress -activity "Testing subnet $Network" -status "$IpAddress" -PercentComplete (($counter / ($IPs.Length)) * 100)
             if ( (Test-Connection -computername "$IpAddress" -quiet -count 1 ) -eq $False) {
-                $Results += $IpAddress    
+                $Results += $IpAddress
             }
         }
         Write-Verbose "There are $($Results.Length) IPs available on network $Network"
-        Write-OutPut $Results       
+        Write-OutPut $Results
     }
     End {
-      
     }
 }
