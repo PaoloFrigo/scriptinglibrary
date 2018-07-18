@@ -9,18 +9,18 @@
     Specify your network using a '*' symbol, for example 10.0.0.*
 
 .EXAMPLE
-    C:\PS>Get-AvailableIP -Network"172.16.0.*" -verbose
+    C:\PS>Find-AvailableIP -Network"172.16.0.*" -verbose
     VERBOSE: There are 2 IPs Available on network 172.16.0.*
     172.16.0.9
     172.16.0.10
 
 .EXAMPLE
-    C:\PS> "172.16.0.*" | Get-AvailableIP
+    C:\PS> "172.16.0.*" | Find-AvailableIP
     172.16.0.9
     172.16.0.10
 
 .EXAMPLE
-    C:\PS> "10.0.0.*", "10.0.1.*" | Get-AvailableIP -Verbose
+    C:\PS> "10.0.0.*", "10.0.1.*" | Find-AvailableIP -Verbose
     VERBOSE: There are 2 IPs Available on network 10.0.0.*
     10.0.0.2
     10.0.0.5
