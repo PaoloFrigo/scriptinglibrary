@@ -21,5 +21,12 @@ Function New-RandomPassword() {
     until ($Password -match $RegEx )   
     return $Password
 }
-
-Write-Output "Generate Random Password: $(New-RandomPassword(10))"
+#Generate a passwords similar to pwgen"
+for ($i = 0; $i -lt (12); $i++) {
+    $line = ""
+    for ($j = 0; $j -lt (5); $j++) {
+        $line += "$(New-RandomPassword(10)) "
+    }
+    Write-Output $line
+}
+#Write-Output "Generate Random Password: $(New-RandomPassword(10))"
