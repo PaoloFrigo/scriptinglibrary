@@ -1,27 +1,30 @@
 # Paolo Frigo, 2018 
 # https://www.scriptinglibrary.com
 
-Function New-RandomPassword() {
+Function New-RandomPassword{
     Param(
-        [ValidateRange(8,32)] 
-        [int] $length = 14
-        )
-    $AsciiCharsList = @()
-    For ($a=33;$a –le 126;$a++) {
-        $AsciiCharsList += ,[char][byte]$a 
-    }    
+        [ValidateRange(8, 32)]
+        [int] $Lenght = 16
+    )   
+    $AsciiCharsList = @()   
+    foreach ($a in (33..126)){
+        $AsciiCharsList += , [char][byte]$a 
+    }
     #RegEx for checking general AD Complex passwords
-    $RegEx = "(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+    $RegEx = "(?=^.{8,32}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*"
+
     do {
-        $Password=""
-        For ($loop=1; $loop –le $length; $loop++) {
-            $Password+=($AsciiCharsList | Get-Random)
+        $Password = ""
+        $loops = 1..$Lenght
+        Foreach ($loop in $loops) {
+            $Password += $AsciiCharsList | Get-Random
         }
     }
     until ($Password -match $RegEx )   
-    return $Password
+    return $Password   
 }
-#Generate a passwords similar to pwgen"
+
+# Generate passwords similar to pwgen"
 for ($i = 0; $i -lt (12); $i++) {
     $line = ""
     for ($j = 0; $j -lt (5); $j++) {
@@ -29,4 +32,5 @@ for ($i = 0; $i -lt (12); $i++) {
     }
     Write-Output $line
 }
-#Write-Output "Generate Random Password: $(New-RandomPassword(10))"
+# This example just print a random password
+# Write-Output "Generate Random Password: $(New-RandomPassword(10))"
