@@ -4,7 +4,7 @@
 Function New-RandomPassword{
     Param(
         [ValidateRange(8, 32)]
-        [int] $Lenght = 16
+        [int] $Length = 16
     )   
     $AsciiCharsList = @()   
     foreach ($a in (33..126)){
@@ -15,7 +15,7 @@ Function New-RandomPassword{
 
     do {
         $Password = ""
-        $loops = 1..$Lenght
+        $loops = 1..$Length
         Foreach ($loop in $loops) {
             $Password += $AsciiCharsList | Get-Random
         }

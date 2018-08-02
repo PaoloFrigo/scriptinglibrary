@@ -8,14 +8,14 @@ Describe "New-RandomPassword" -Tags "Unit Tests" {
         (New-RandomPassword).GetType().Name | Should BeExactly "String"
     }
 
-    #Pick a password lenght between 0 and 7 and 33 and 100 characters  
+    #Pick a password Length between 0 and 7 and 33 and 100 characters  
     $n = 0..1 + 33..100 
     foreach ($length in $n){
-        it "Should throw an exeption if the password lenght ($length) is out of the accepted range (8-32)"    {
-            {New-RandomPassword -Lenght 5} | Should throw
+        it "Should throw an exeption if the password Length ($length) is out of the accepted range (8-32)"    {
+            {New-RandomPassword -Length 5} | Should throw
         }
     }
-    #Pick a password lenght between 8 and 32 characters   
+    #Pick a password Length between 8 and 32 characters   
     $n = 8..32 
     foreach ($length in $n){
         It "Should generate a password $length character long" {
