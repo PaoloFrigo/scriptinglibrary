@@ -1,0 +1,56 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+
+  ## LINUX VMS
+
+  config.vm.define "lab-ubuntu01" do |ubuntu01|
+    ubuntu01.vm.box = "generic/ubuntu1804"
+    ubuntu01.vm.hostname = "lab-ubuntu01"
+    ubuntu01.vm.network "private_network", ip: "172.16.1.10"
+    ubuntu01.vm.provider "hyperv" do |hv|
+      hv.memory = 1024
+    end
+  end
+
+  config.vm.define "lab-centos01" do |centos01|
+    centos01.vm.box = "generic/centos7"
+    centos01.vm.hostname = "lab-centos01"
+    centos01.vm.network "private_network", ip: "172.16.1.11"
+    centos01.vm.provider "hyperv" do |hv|
+      hv.memory = 1024
+    end
+  end
+
+  ## WINDOWS VMS
+
+  config.vm.define "lab-win01" do |win01|
+    win01.vm.box = "mwrock/Windows2016"
+    win01.vm.hostname = "lab-windows01"
+    win01.vm.communicator = "winrm"
+    win01.winrm.username = "vagrant"
+    win01.winrm.password = "vagrant"
+    win01.vm.network "private_network", ip: "172.16.1.22"
+    win01.vm.provider "hyperv" do |hv|
+      hv.memory = 2048
+    end
+  end
+
+  config.vm.define "lab-win02" do |win02|
+    win02.vm.box = "mwrock/Windows2012R2"
+    win02.vm.hostname = "lab-windows02"
+    win02.vm.communicator = "winrm"
+    win02.winrm.username = "vagrant"
+    win02.winrm.password = "vagrant"
+    win02.vm.network "private_network", ip: "172.16.1.23"
+    win02.vm.provider "hyperv" do |hv|
+      hv.memory = 2048
+    end
+  end
+
+end
