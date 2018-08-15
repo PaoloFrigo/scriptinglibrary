@@ -5,6 +5,12 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
+
+##
+## Paolo Frigo, https://www.scriptinglibrary.com
+## Vagrant configuration to spin up a lab environment
+
+
 Vagrant.configure("2") do |config|
 
   ## LINUX VMS
