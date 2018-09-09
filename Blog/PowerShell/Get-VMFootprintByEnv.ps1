@@ -3,7 +3,7 @@
 
 #
 # Paolo Frigo, https://www.scriptinglibrary.com
-# This script will sum all VM Footprint according to the filter PROD/TEST/DEV used.
+# This script will sum all VM Footprints according to the filter PROD/TEST/DEV used.
 # 
 
 
