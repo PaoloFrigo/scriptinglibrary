@@ -3,8 +3,9 @@
 
 #
 # Paolo Frigo, https://www.scriptinglibrary.com
-# This script will sum all VM Footprints according to the filter PROD/TEST/DEV used.
-# 
+# This script will sum all VM Footprints according to your naming convention filter PROD/TEST/DEV used.
+#
+# VMNODES will list all hyper-v hosts 
 
 
 $Filter = "prod" # prod, test or dev
