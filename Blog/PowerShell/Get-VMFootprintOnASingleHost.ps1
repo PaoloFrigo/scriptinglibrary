@@ -15,7 +15,7 @@ function Get-VMFootprint ($VM){
     Return [math]::round($total_size/1GB,2)       
 }
  
-$couter = 0
+$counter = 0
 $vm_counter = 0
 $total = 0 
 
@@ -23,7 +23,7 @@ foreach ($VMHost in $ALL_HSD_VM_NODES){
     $counter += 1    
     foreach ($VM in (get-vm -computername $VMHost)){      
         $vm_counter += 1   
-        Write-Progress -Status "Get Footprint of $($VM.Name)" -Activity "Retrieve information from $($VmHost)"  -PercentComplete $($couter/$NumNodes*100)
+        Write-Progress -Status "Get Footprint of $($VM.Name)" -Activity "Retrieve information from $($VmHost)"  -PercentComplete $($counter/$NumNodes*100)
         $VmSize = $(Get-VMFootprint($VM))
         Write-Verbose "$($VM.Name) - $VmSize GB" 
         $total += $VmSize
