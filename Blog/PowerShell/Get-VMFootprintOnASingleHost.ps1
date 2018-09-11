@@ -15,7 +15,7 @@ function Get-VMFootprint ($VM){
     Return [math]::round($total_size/1GB,2)       
 }
  
-$couter = 0
+$counter = 0
 $vm_counter = 0
 $total = 0 
 
