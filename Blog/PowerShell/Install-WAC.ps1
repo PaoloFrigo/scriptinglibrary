@@ -26,7 +26,7 @@ msiexec /i $WAC_Installer /qn SME_PORT=$Port SSL_CERTIFICATE_OPTION=generate
 #Post Installation Checks
 do {
     if ((Get-Service ServerManagementGateway).status -ne "Running"){
-        Write-Output "Starting for Windows Admin Center"
+        Write-Output "Starting Windows Admin Center Service"
         Start-Service ServerManagementGateway
     }
     Start-sleep -Seconds 5
