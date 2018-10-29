@@ -1,7 +1,7 @@
 #Paolo Frigo, https://www.scriptinglibrary.com
 
 # Create a AD DC with Powershell
-
+# -------------------------------
 # Install the role, import the module, create a forest 
 # add this server as a Primary Domain Controller 
 
