@@ -14,13 +14,11 @@ Connect-VBRServer
 #get the details user, server, port of the opened connections
 Get-VBRServerSession
 
-
 #get a list of all Servers MS HYPER-V and or VMWare-vSphere
 Get-VBRServer
 
 #Find the VM on WMWARE
 Find-VBRViEntity
-
 
 #Find the VM on Hyper-V
 Find-VBRHvEntity
