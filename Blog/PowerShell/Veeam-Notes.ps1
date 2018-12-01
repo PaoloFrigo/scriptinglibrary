@@ -22,7 +22,7 @@ Get-VBRServer
 Find-VBRViEntity
 
 
-#Find the VM on WMWARE
+#Find the VM on Hyper-V
 Find-VBRHvEntity
 
 #Get the VBR Credentials
