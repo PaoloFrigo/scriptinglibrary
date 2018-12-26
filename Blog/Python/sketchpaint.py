@@ -1,11 +1,12 @@
-#This was written 2006 one of my first python pet project
-#All variable and function names are in Italian 
+# This was written in 2006 and released as a micro open-source project for education purpose in 2009. 
+# It's one of my first python pet project
+# All variable and function names are in Italian.
 
 #SketchPynt -v 0.1, PF, paolofrigo(at)gmail.com 
 import Tkinter, tkColorChooser, string, tkMessageBox, cPickle, tkFileDialog
 
 VERSIONE="SketchPynt! v0.1"
-AUTORE="SketchPynt!\n[PF] Paolo Frigo,2009\nhttp://paolofrigo.netsons.org/\npaolofrigo(at)gmail.com"
+AUTORE="SketchPynt!\n[PF] Paolo Frigo,2009\npaolofrigo(at)gmail.com"
 #DEFAULT, Impostazioni predefinite
 COLORE="#000000"     #Colore della matita 
 SFONDO="#FFFFFF"     #Colore di sfondo e della gomma
