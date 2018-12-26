@@ -1,11 +1,6 @@
 #requires -runasadministrator
 
 #Paolo Frigo, https://www.scriptinglibrary.com
-
-
-
-
-
 # 
 ##RdpSessionTable will contain all your results
 function New-RdpSessionTable() {
@@ -29,7 +24,7 @@ function Get-RemoteRdpSession {
         ComputerName parameter is required to specify a list of computers to query
 
     .PARAMETER State
-        RemoveDirWhenFinished parameter is optional and can be set to "ACTIVE" or "DISC". If not 
+        State parameter is optional and can be set to "ACTIVE" or "DISC". If not 
         used both ACTIVE and DISC connections will be returned.
 
     .EXAMPLE
