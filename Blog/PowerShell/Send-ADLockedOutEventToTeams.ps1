@@ -1,3 +1,5 @@
+#requires -module ActiveDirectory 
+
 #Paolo Frigo, https://www.scriptinglibrary.com
 
 # The execution of this is scheduled to run every 5 minutes on ServerX
