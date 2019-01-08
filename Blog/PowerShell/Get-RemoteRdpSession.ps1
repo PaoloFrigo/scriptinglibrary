@@ -31,7 +31,7 @@ function Get-RemoteRdpSession {
         Get-RemoteRdpSession  -computername $(Get-AdComputer -filter * | select-object -exp name ) 
 
     .EXAMPLE
-        Get-RemoteRdpSession  -computername ("server1", "server2") -state DISC  
+        Get-RemoteRdpSession  -computername "server1", "server2" -state DISC  
        
     .NOTES
         Author: paolofrigo@gmail.com, https://www.scriptinglibrary.com
