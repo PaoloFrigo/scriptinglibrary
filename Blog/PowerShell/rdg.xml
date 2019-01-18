@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RDCMan programVersion="2.7" schemaVersion="3">
+  <file>
+    <credentialsProfiles />
+    <properties>
+      <expanded>True</expanded>
+      <name>ScriptingLibrary</name>
+    </properties>
+    <group>
+      <properties>
+        <expanded>True</expanded>
+        <name>Servers</name>
+      </properties> 
+    </group>   
+  </file>
+  <connected />
+  <favorites />
+  <recentlyUsed />
+</RDCMan>
