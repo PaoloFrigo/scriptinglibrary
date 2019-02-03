@@ -1,6 +1,9 @@
 #requires -runasdministrator 
 
 #Paolo, scriptinglibrary.com
+
+#Get-Help about_signing  #Official doc 
+
 $MySigningCertificate = New-SelfSignedCertificate -subject "Paolo's Signing Certificate" -Type CodeSigning -CertStoreLocation "cert:\LocalMachine\My"
 
 #Export our pfx and use a strong password to protect it
