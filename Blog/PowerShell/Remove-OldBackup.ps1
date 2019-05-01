@@ -3,9 +3,10 @@
 <#
 
     .Synopsis
-        This function Remove-OldBackup require
+        This function Remove-OldBackup will retain the latest N copy on a database from a specified folder
+
     .Description
-        Get Local admin list
+        This function Remove-OldBackup will retain the latest N copy on a database from a specified folder
 
 
     .Example
@@ -13,7 +14,7 @@
         Remove from $Folder all $Database like files and keep the most recent number ($keeplast) of files
 
     .Notes
-        Remember to use the dot-surcing notation to import this function.
+        Remember to use the dot-surcing notation to import this function before calling the Remove-OldBackup cmd-let.
         Please add a -Confirm if needed
         Author: Paolo Frigo,  https://www.scriptinglibrary.com
 
