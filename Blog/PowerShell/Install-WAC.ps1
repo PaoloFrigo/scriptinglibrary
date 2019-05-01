@@ -1,7 +1,6 @@
 ﻿#requires -runasadministrator
 
 # Paolo Frigo, https://www.scriptinglibrary.com
-#
 
 #WINDOWS ADMIN CENTER DOCs
 #https://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/deploy/install
