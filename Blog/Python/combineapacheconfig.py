@@ -10,7 +10,6 @@ import fnmatch
 import re
 import argparse
 
-
 def ProcessMultipleFiles(inputfiles):
     """ Process an expression with /* with all the files included on that directory """
     if inputfiles.endswith("/"):
