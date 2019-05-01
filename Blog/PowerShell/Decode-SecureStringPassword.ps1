@@ -1,4 +1,4 @@
-<#
+﻿<#
 .Synopsis
    Tries to decode a SecureString and returns its clear text value
 .DESCRIPTION
@@ -12,7 +12,7 @@
 
 .Notes
     Author: Paolo Frigo - paolofrigo@gmail.com , https://www.scriptinglibrary.com
- 
+
 #>
 function Decode-SecureStringPassword {
     [CmdletBinding()]
@@ -23,12 +23,12 @@ function Decode-SecureStringPassword {
         [Parameter(Mandatory = $true,
         ValueFromPipelineByPropertyName = $true,
         Position = 0) ]
-        $password 
+        [SecureString] $password
     )
     Begin {
     }
-    Process {        
-        return [System.Runtime.InteropServices.Marshal]::PtrToStringUni([System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($password))              
+    Process {
+        return [System.Runtime.InteropServices.Marshal]::PtrToStringUni([System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($password))
     }
     End {
     }

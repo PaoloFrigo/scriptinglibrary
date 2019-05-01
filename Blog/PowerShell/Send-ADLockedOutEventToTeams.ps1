@@ -1,4 +1,4 @@
-#requires -module ActiveDirectory 
+﻿#requires -module ActiveDirectory
 
 #Paolo Frigo, https://www.scriptinglibrary.com
 
@@ -19,7 +19,7 @@ $BodyTemplate = @"
         "title": "Active Directory: Account Locked-Out Event",
          "sections": [
             {
-            
+
                 "facts": [
                     {
                         "name": "Username:",

@@ -1,4 +1,4 @@
-#requires -module BurntToast,ActiveDirectory
+﻿#requires -module BurntToast,ActiveDirectory
 
 #Paolo Frigo, https://www.scriptinglibrary.com
 
@@ -7,22 +7,22 @@ do {
     if (Search-ADAccount -LockedOut) {
         foreach ($user in (Search-ADAccount -LockedOut)) {
             New-Burnttoastnotification -text "Locked-Out User Notification", "$($($user).name) is now Locked-Out"
-        } 
-    }       
+        }
+    }
     start-sleep -Seconds $SleepTime
 }
-while ($True) 
+while ($True)
 
 
 <#
- # If you want a limited number of test you can use a foreach loop instead of a do-while 
- # 
+ # If you want a limited number of test you can use a foreach loop instead of a do-while
+ #
 ForEach ($i in (1..100)){
     if (Search-ADAccount -LockedOut) {
         foreach ($user in (Search-ADAccount -LockedOut)) {
             New-Burnttoastnotification -text "Locked-Out User Notification", "$($($user).name) is now Locked-Out"
-        } 
-    }       
+        }
+    }
     start-sleep -Seconds $SleepTime
 }
 #>

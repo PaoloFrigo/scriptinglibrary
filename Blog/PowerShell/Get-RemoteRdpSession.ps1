@@ -1,12 +1,12 @@
-#requires -runasadministrator
+﻿#requires -runasadministrator
 
 #Paolo Frigo, https://www.scriptinglibrary.com
-# 
+#
 ##RdpSessionTable will contain all your results
 function New-RdpSessionTable() {
     $RDPSessionTable = New-Object System.Data.DataTable("RDPSessions")
     "COMPUTERNAME", "USERNAME", "ID", "STATE" | ForEach-Object {
-        $Col = New-Object System.Data.DataColumn $_ 
+        $Col = New-Object System.Data.DataColumn $_
         $RDPSessionTable.Columns.Add($Col)
     }
     return , $RDPSessionTable
@@ -17,31 +17,31 @@ function Get-RemoteRdpSession {
     .SYNOPSIS
         This function is a simple wrapper of query session / qwinsta and returs a DataTable Objects
 
-    .DESCRIPTION      
+    .DESCRIPTION
         This function is a simple wrapper of query session / qwinsta and returs a DataTable Objects
 
     .PARAMETER ComputerName
         ComputerName parameter is required to specify a list of computers to query
 
     .PARAMETER State
-        State parameter is optional and can be set to "ACTIVE" or "DISC". If not 
+        State parameter is optional and can be set to "ACTIVE" or "DISC". If not
         used both ACTIVE and DISC connections will be returned.
 
     .EXAMPLE
-        Get-RemoteRdpSession  -computername $(Get-AdComputer -filter * | select-object -exp name ) 
+        Get-RemoteRdpSession  -computername $(Get-AdComputer -filter * | select-object -exp name )
 
     .EXAMPLE
-        Get-RemoteRdpSession  -computername "server1", "server2" -state DISC  
-       
+        Get-RemoteRdpSession  -computername "server1", "server2" -state DISC
+
     .NOTES
         Author: paolofrigo@gmail.com, https://www.scriptinglibrary.com
     #>
-    
+
     [CmdletBinding()]
- 
+
     [OutputType([int])]
     Param
-    (        
+    (
         [Parameter(Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             Position = 0)]
@@ -51,7 +51,7 @@ function Get-RemoteRdpSession {
         [Parameter(Mandatory = $false, Position = 1 )]
         [ValidateSet("Active", "Disc")]
         [string]
-        $state       
+        $state
     )
     Begin {
         $tab = New-RdpSessionTable
@@ -59,21 +59,21 @@ function Get-RemoteRdpSession {
         $total = $computername.Length
     }
     Process {
-        foreach ($hostname in $computername) {   
-            Write-Progress -Activity "Get-RemoteRdpSession" -Status "Querying RDP Session on $hostname" -PercentComplete (($counter / $total) * 100) 
+        foreach ($hostname in $computername) {
+            Write-Progress -Activity "Get-RemoteRdpSession" -Status "Querying RDP Session on $hostname" -PercentComplete (($counter / $total) * 100)
             if (Test-Connection -ComputerName $hostname -Quiet -Count 1){
                 $result = query session /server:$hostname
-                $rows = $result -split "`n"            
-                foreach ($row in $rows) {                
+                $rows = $result -split "`n"
+                foreach ($row in $rows) {
                     if ($state) {
                         $regex = $state
                     }
                     else {
                         $regex = "Disc|Active"
                     }
-                    
+
                     if ($row -NotMatch "services|console" -and $row -match $regex) {
-                        $session = $($row -Replace ' {2,}', ',').split(',')            
+                        $session = $($row -Replace ' {2,}', ',').split(',')
                         $newRow = $tab.NewRow()
                         $newRow["COMPUTERNAME"] = $hostname
                         $newRow["USERNAME"] = $session[1]

@@ -1,14 +1,14 @@
-# Paolo Frigo, 2018 
+﻿# Paolo Frigo, 2018
 # https://www.scriptinglibrary.com
 
 Function New-RandomPassword{
     Param(
         [ValidateRange(8, 32)]
         [int] $Length = 16
-    )   
-    $AsciiCharsList = @()   
+    )
+    $AsciiCharsList = @()
     foreach ($a in (33..126)){
-        $AsciiCharsList += , [char][byte]$a 
+        $AsciiCharsList += , [char][byte]$a
     }
     #RegEx for checking general AD Complex passwords
     $RegEx = "(?=^.{8,32}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*"
@@ -20,8 +20,8 @@ Function New-RandomPassword{
             $Password += $AsciiCharsList | Get-Random
         }
     }
-    until ($Password -match $RegEx )   
-    return $Password   
+    until ($Password -match $RegEx )
+    return $Password
 }
 
 # Generate passwords similar to pwgen"

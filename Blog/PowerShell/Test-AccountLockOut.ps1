@@ -1,10 +1,10 @@
-#Paolo Frigo, scriptinglibrary.com
-#requires -runasadministrator 
+﻿#Paolo Frigo, scriptinglibrary.com
+#requires -runasadministrator
 #requires -module ActiveDirectory
 
 #how to test ad account lockout policies
 
-#create a test user 
+#create a test user
 New-aduser -name "test-user"
 
 #let's check the user created
@@ -36,7 +36,7 @@ Repeat Password: *********
 #Let's enable our test account
 Get-ADUser test-user | Enable-ADAccount
 
-#let's check the  AD default domain password policies 
+#let's check the  AD default domain password policies
 Get-ADDefaultDomainPasswordPolicy
 
 <#
@@ -72,7 +72,7 @@ UserPrincipalName      :
 #>
 
 #Let's make 5 wrong authentication attempts to lockout the test user
-(1..5)| %{runas /user:contoso\test-user cmd}
+(1..5)| ForEach-Object{runas /user:contoso\test-user cmd}
 <#
 Enter the password for contoso\test-user:
 Attempting to start cmd as user "contoso\test-user" ...
@@ -134,7 +134,7 @@ UserPrincipalName     :
 #>
 
 
-#investigate on specific user 
+#investigate on specific user
 Get-ADUser -Filter {DisplayName -like "John D*"}  -Properties PasswordExpired, PasswordLastSet, EmailADdress,BadLogonCount,lastbadpasswordattempt, Lastlogondate, LockedOut, LockoutTime
 
 
@@ -147,7 +147,7 @@ Get-EventLog -LogName Security -ComputerName $(Get-ADDomainController).hostname 
 
 
 #Let's search for the caller ID
-Get-EventLog -LogName Security -ComputerName $(Get-ADDomainController).hostname -InstanceId 4740 -newest 1 | select -exp Message
+Get-EventLog -LogName Security -ComputerName $(Get-ADDomainController).hostname -InstanceId 4740 -newest 1 | Select-Object -exp Message
 <#
 A user account was locked out.
 
@@ -165,5 +165,5 @@ Additional Information:
         Caller Computer Name:   MYDC
 #>
 
-#Let's close this test by disabling the test-account 
+#Let's close this test by disabling the test-account
 Disable-ADAccount test-user

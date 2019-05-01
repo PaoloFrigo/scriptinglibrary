@@ -1,4 +1,4 @@
-#requires -runasadministrator
+﻿#requires -runasadministrator
 
 #Paolo Frigo, https://www.scriptinglibrary.com
 
@@ -9,7 +9,7 @@ Add-PSSnapin VeeamPSSnapIn
 Get-Command -module veeampssnapin
 
 #connect to a veeam backup server
-Connect-VBRServer 
+Connect-VBRServer
 
 #get the details user, server, port of the opened connections
 Get-VBRServerSession
@@ -30,7 +30,7 @@ Get-VBRCredentials
 
 $hyperv_node = "hyper-lab.contoso.com" # or a list of nodes
 $vm_name = "testd-web01"
-$vm=Find-VBRHvEntity -server $hyperv_node -name $vm_name 
+$vm=Find-VBRHvEntity -server $hyperv_node -name $vm_name
 $nas="\\nas.contoso.com\Archive"
 $vmm_cred = Get-VBRCredentials | Where-Object {$_.description -like "scvmm"}
 $email_notify_to= "me@contoso.com"
@@ -39,7 +39,7 @@ $mailserver = "mail.contoso.com"
 $smtpport=587
 $emailsubject = "VM Full backup  - VEEAMZIP Weekly report"
 
-Find-VBRHvEntity -server $hyperv_node -name $vm_name 
+Find-VBRHvEntity -server $hyperv_node -name $vm_name
 
 #Or list the all the VMs
 Get-VBRServer -Name $hyperv_node | Find-VBRHvEntity
@@ -48,8 +48,8 @@ Get-VBRServer -Name $hyperv_node | Find-VBRHvEntity
 Start-VBRZip -Folder $nas -Entity $vm -Compression 4 -DisableQuiesce -AutoDelete In2Weeks -NetworkCredentials $vmm_cred -RunAsync
 
 #These week Backups
-$BACKUP_SUMMARY = Get-ChildItem $nas | SELECT NAME, LastWriteTime,  @{N='SizeInGB';E={[math]::Round($_.length / 1GB,2)}} | WHERE {$_.LASTWRITETIME -gt $(Get-Date).ADDdAYS(-7) } | ConvertTo-Html 
+$BACKUP_SUMMARY = Get-ChildItem $nas | Select-Object NAME, LastWriteTime,  @{N='SizeInGB';E={[math]::Round($_.length / 1GB,2)}} | Where-Object {$_.LASTWRITETIME -gt $(Get-Date).ADDdAYS(-7) } | ConvertTo-Html
 
-#Send an email 
+#Send an email
 Send-MailMessage  -subject $emailsubject -BodyAsHtml "$BACKUP_SUMMARY" -From $email_notify_from -to $email_notify_to -SmtpServer $mailserver -port $smtpport
 
