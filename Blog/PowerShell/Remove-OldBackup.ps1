@@ -1,10 +1,24 @@
 ﻿#PF,2019  https://www.scriptinglibrary.com 
 
-# SETTINGS
+<#
+    
+    .Synopsis
+        This function Remove-OldBackup require
+    .Description 
+        Get Local admin list
 
-$Folder = "D:\temp\Backup\"     #backup folder 
-$Database = "db*bak"            #database name 
-$KeepLast = 2                   #retain just last 2 copies
+    
+    .Example 
+        Remove-OldBackup -Folder $Folder -Database $Database -KeepLast $KeepLast
+        Remove from $Folder all $Database like files and keep the most recent number ($keeplast) of files 
+
+    .Notes
+        Remember to use the dot-surcing notation to import this function.
+        Please add a -Confirm if needed 
+        Author: Paolo Frigo,  https://www.scriptinglibrary.com
+        
+
+#>
  
 function Remove-OldBackup{
     [CmdletBinding()]
@@ -21,5 +35,9 @@ function Remove-OldBackup{
     Get-ChildItem -Path $Folder -Exclude ($ExcludeFiles) | Where-Object {$_.Name -like $Database} | Remove-Item #-confirm 
 }
 
+# SETTINGS
+#$Folder = "D:\temp\Backup\"     #backup folder 
+#$Database = "db*bak"            #database name 
+#$KeepLast = 2                   #retain just last 2 copies
 #example 
-Remove-OldBackup -Folder $Folder -Database $Database -KeepLast $KeepLast
+#Remove-OldBackup -Folder $Folder -Database $Database -KeepLast $KeepLast
