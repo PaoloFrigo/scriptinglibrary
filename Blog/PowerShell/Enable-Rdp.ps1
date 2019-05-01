@@ -39,7 +39,6 @@ function Enable-RemoteDesktopOnTarget{
         $ComputerName
     )
     Begin{
-
     }
     Process{
         Invoke-Command -ComputerName $ComputerName -ScriptBlock {
@@ -52,6 +51,5 @@ function Enable-RemoteDesktopOnTarget{
         }
     }
     End{
-
     }
 }
