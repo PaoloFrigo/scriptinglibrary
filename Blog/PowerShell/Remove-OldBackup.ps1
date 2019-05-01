@@ -18,7 +18,7 @@ function Remove-OldBackup{
         [int] $KeepLast
     )     
     $ExcludeFiles = Get-ChildItem -Path $Folder | Where-Object {$_.Name -like $Database} |Sort-Object  -Property CreationTime | Select-Object -last $KeepLast -ExpandProperty Name 
-    Get-ChildItem -Path $Folder -Exclude ($ExcludeFiles) | Where-Object {$_.Name -like $Database} | Remove-Item 
+    Get-ChildItem -Path $Folder -Exclude ($ExcludeFiles) | Where-Object {$_.Name -like $Database} | Remove-Item #-confirm 
 }
 
 #example 
