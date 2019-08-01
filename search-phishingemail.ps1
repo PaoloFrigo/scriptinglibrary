@@ -4,7 +4,7 @@
 #https://docs.microsoft.com/en-us/powershell/module/exchange/mailboxes/search-mailbox?view=exchange-ps
 
 
-$admin = "paolo.frigo"
+$admin = "paolofrigo"
 $query = "from:attacker@domain.com" #", subject:, content:"  #"KEYWORD OR KEYWORD"
 
 
