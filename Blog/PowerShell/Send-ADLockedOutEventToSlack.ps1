@@ -8,7 +8,7 @@
 # every single lockout-event in the local AD domain.
 
 # Webhooks Channel
-$SlackChannelUri = "https://hooks.slack.com/services/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"
+$SlackChannelUri = "https://hooks.slack.com/services/E/ETCETC"
 $ChannelName = "#general"
 
 $BodyTemplate = @"
