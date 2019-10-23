@@ -7,7 +7,9 @@
 # $cred = Get-Credential 
 
 Param (
-    [Parameter(Mandatory=$true)]    
+    [Parameter( Mandatory=$true,
+                ValueFromPipeline = $true,
+                ValueFromPipelineByPropertyName = $true)]    
     $ComputerName 
 )
 
