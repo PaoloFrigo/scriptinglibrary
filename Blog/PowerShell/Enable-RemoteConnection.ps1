@@ -13,8 +13,16 @@ Param (
     $ComputerName 
 )
 
+
 #Tests if the host is the target host is reachable
 if (test-connection -computername $ComputerName -quiet -count 1){
+}
+else {
+    Throw "$computername is not reachable"
+}
+
+#Tests if the host is the target host is reachable
+if (test-wsman -computername $ComputerName){
     #Enables The remote desktop connections
     invoke-command -computername $ComputerName -scriptblock {Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0} #-credential $cred
     #Adds a firewall rule
@@ -27,5 +35,5 @@ if (test-connection -computername $ComputerName -quiet -count 1){
     }
 }
 else {
-    Write-Warning "$ComputerName is not reachable"
+    Throw "$ComputerName hasn't got PS Remoting Enabled"
 }
