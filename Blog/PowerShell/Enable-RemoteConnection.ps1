@@ -14,14 +14,14 @@ Param (
 )
 
 
-#Tests if the host is the target host is reachable
+#Tests if the target host is reachable
 if (test-connection -computername $ComputerName -quiet -count 1){
 }
 else {
     Throw "$computername is not reachable"
 }
 
-#Tests if the host is the target host is reachable
+#Tests PSRemoting is enabled on the target host 
 if (test-wsman -computername $ComputerName){
     #Enables The remote desktop connections
     invoke-command -computername $ComputerName -scriptblock {Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0} #-credential $cred
