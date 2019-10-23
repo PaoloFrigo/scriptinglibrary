@@ -1,6 +1,6 @@
 #Paolo Frigo, https://www.scriptinglibrary.com
 
-# This script enables remote connection on the ComputerName host, add a firewall rule to the winodws host based firewall and 
+# This script enables remote connection on the target host, add a firewall rule to the winodws host based firewall and 
 # tests if the standard RDP port is open.
 
 # If you want to provide local admin credentials
@@ -13,7 +13,7 @@ Param (
     $ComputerName 
 )
 
-#Tests if the host is the ComputerName host is reachable
+#Tests if the host is the target host is reachable
 if (test-connection -computername $ComputerName -quiet -count 1){
     #Enables The remote desktop connections
     invoke-command -computername $ComputerName -scriptblock {Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0} #-credential $cred
@@ -23,7 +23,7 @@ if (test-connection -computername $ComputerName -quiet -count 1){
         Write-Output "Remote connection ENABLED, Firewall rule ADDED and RDP port OPEN on $ComputerName"
     }
     else{
-        Write-Warning "The RDP port on $ComputerName is not open"
+        Write-Warning "The RDP port on $ComputerName is BLOCKED"
     }
 }
 else {
