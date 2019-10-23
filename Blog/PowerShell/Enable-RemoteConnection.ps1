@@ -1,6 +1,6 @@
 #Paolo Frigo, https://www.scriptinglibrary.com
 
-# This script enables remote connection on the target host, add a firewall rule to the winodws host based firewall and 
+# This script enables remote desktop connection on the target host, add a firewall rule to the winodws host based firewall and 
 # tests if the standard RDP port is open.
 
 # If you want to provide local admin credentials
