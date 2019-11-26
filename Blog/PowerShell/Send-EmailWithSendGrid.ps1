@@ -1,7 +1,22 @@
-function Send-MailMessageWithSendGrid {
+#Paolo Frigo, https://www.scriptinglibrary.com
+
+
+<#
+.Synopsis
+    This function sends an email using SendGrid APIs
+
+.DESCRIPTION
+    This function sends an email using SendGrid REST API. 
+
+.EXAMPLE
+   Send-EMailWithSendGrid -from "email@domain" -to "email@domain" -ApiKey "MY_SENDGRID_API_KEY" -Body "Test 1..2..3!" -Subject "Sendgrid Test"
+
+.NOTES
+   Author Paolo Frigo,  https://www.scriptinglibrary.com
+#>
+function Send-EmailWithSendGrid {
      Param
     (
-       
         [Parameter(Mandatory=$true)]
         [string] $From,
  
@@ -20,27 +35,24 @@ function Send-MailMessageWithSendGrid {
     )
 
     $headers = @{}
-    $headers.Add("Authorization","Bearer $($apiKey)")
+    $headers.Add("Authorization","Bearer $apiKey")
     $headers.Add("Content-Type", "application/json")
 
     $jsonRequest = [ordered]@{
-       personalizations= @(@{to = @(@{email =  "$To"})
-                                      subject = "$SubJect" })
-                  from = @{email = "$From"}
-               content = @(  @{ type = "text/plain"
-                value ="$Body" }
-      )} | ConvertTo-Json -Depth 10
+                            personalizations= @(@{to = @(@{email =  "$To"})
+                                subject = "$SubJect" })
+                                from = @{email = "$From"}
+                                content = @( @{ type = "text/plain"
+                                            value = "$Body" }
+                                )} | ConvertTo-Json -Depth 10
+    Invoke-RestMethod   -Uri "https://api.sendgrid.com/v3/mail/send" -Method Post -Headers $headers -Body $jsonRequest 
 
-    Invoke-RestMethod   -Uri "https://api.sendgrid.com/v3/mail/send" -Method Post -Headers $headers -Body $jsonRequest
 }
 
+# $From = "email@address"
+# $To = "email@address"
+# $APIKEY = "MY_API_KEY"
+# $Subject = "TEST"
+# $Body ="SENDGRID 123"
 
-
-
-$From = "email@address"
-$To = "email@address"
-$APIKEY = "MY_API_KEY"
-$Subject = "TEST"
-$Body ="SENDGRID 123"
-
-Send-MailMessageWithSendGrid -from $from -to $to -ApiKey $APIKEY -Body $Body -Subject $Subject
+# Send-EMailWithSendGrid -from $from -to $to -ApiKey $APIKEY -Body $Body -Subject $Subject
