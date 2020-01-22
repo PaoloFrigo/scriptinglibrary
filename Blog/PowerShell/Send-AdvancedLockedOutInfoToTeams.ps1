@@ -5,7 +5,7 @@
 # Paolo Frigo, https://www.scriptinglibrary.com
 
 #Webhooks channel
-$TeamsChannelUri = ""
+$TeamsChannelUri = "PASTE_YOUR_TEAMS_URL"
 
 $BodyTemplate = @"
     {
@@ -45,10 +45,7 @@ $BodyTemplate = @"
     }
 "@
 
-
 if (Search-ADAccount -LockedOut){
-
-    $user= 'rowanm'
     foreach ($user in (Search-ADAccount -LockedOut)){
         $Event = get-lockedoutInfo -username $($user.samaccountname) -justPdc $false
         $body = $BodyTemplate.Replace("DOMAIN_USERNAME",$($user.samaccountname)).Replace("FULLNAME",$user.name).Replace("DATETIME",$(Get-Date)).Replace("CALLERID", $Event.callerid).Replace("DC", $Event.DC).Replace("LOCKOUTTIME", $Event.Time)    
