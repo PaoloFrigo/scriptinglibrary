@@ -21,7 +21,7 @@ AbuseIPCheck=$(curl -s -G https://api.abuseipdb.com/api/v2/check-block \
         -H "Key: $API_KEY" \
         -H "Accept: application/json" |jq '.data.reportedAddress')
 
-if [ -n "$AbuseIPCheck" ]; then
+if [ "$AbuseIPCheck" != [] ]; then
         echo "CRITICAL: $AbuseIPCheck";
         #exit 2 #Comment out for Nagios 
 else
