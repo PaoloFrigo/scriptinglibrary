@@ -2,7 +2,8 @@
 
 # This scripts creates connect a local port to a remote port via an SSH tunnel 
 
-# SCENARIO:  Poor-Man's VPN 
+# SCENARIO:  POOR-MAN'S VPN 
+#
 # HOST1 on NETWORKA wants to connect to HOST2 on NETWORKB,
 # HOST2 is not exposed to the internet and there are not port-forwarding configured
 # if there is an internet facing ssh server let's call it JUMPBOX available in
@@ -31,12 +32,12 @@ try{
     $plinktest = Invoke-expression "plink.exe"
 }
 catch{
-    Write-Warning "Plink is dependency is missing. Downloading from the internet the latest version of PLINK."
+    Write-Warning "PLINK DEPENDENCY IS MISSING. Downloading the latest version of PLINK.."
     Invoke-WebRequest "https://the.earth.li/~sgtatham/putty/latest/w64/plink.exe" -o "plink.exe"
     If(Test-Path "plink.exe"){
-        Write-Output "Download of PLINK completed!"
+        Write-Output "Download completed!"
     }
 }
 
-Write-Output "Creating the SSH Tunnel using port-fw"
+Write-Output "CREATING THE SSH TUNNEL USING PORT-FW"
 invoke-expression "plink.exe -P $($RemotePortForSSH) -L $($LocalPort):$($TargetBox):$($TargetPort) $($Username)@$($MyLinuxBox)"
