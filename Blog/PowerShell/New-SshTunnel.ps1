@@ -28,7 +28,7 @@ $RemotePortForSSH   =   "22"
 # This script requires PLINK, if is not present will be downloaded
 
 try{
-    $plinktest = Invoke-expression "plink2.exe"
+    $plinktest = Invoke-expression "plink.exe"
 }
 catch{
     Write-Warning "Plink is dependency is missing. Downloading from the internet the latest version of PLINK."
