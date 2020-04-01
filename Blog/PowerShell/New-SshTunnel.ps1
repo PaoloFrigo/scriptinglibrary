@@ -11,7 +11,7 @@
 # SETTINGS
 # -----------------------------------------------------------------------------------
 #Local port
-$LocalPort          =   "12345"         # HOST1
+$LocalPort          =   "12345"         # HOST1 can be on 10.1.2.4/24 NETWORKA
 
 #Target box
 $TargetBox          =   "192.168.1.94"  # HOST2
@@ -39,4 +39,4 @@ catch{
 }
 
 Write-Output "Creating the SSH Tunnel using port-fw"
-invoke-expression "plink.exe -P $($RemotePortForSSH) -L $($LocalPort):$($TargetBox):$($TargetPort) $($Username)@luna.hsd.com.au"
+invoke-expression "plink.exe -P $($RemotePortForSSH) -L $($LocalPort):$($TargetBox):$($TargetPort) $($Username)@$($MyLinuxBox)"
