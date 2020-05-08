@@ -1,6 +1,6 @@
 #Paolo Frigo, https://www.scriptinglibrary.com
 
-#This helper function will dencode a base64 string into a fil
+#This helper function will dencode a base64 string into a file
 function Decode-Base64ToFile{
     [CmdletBinding()]
     param (
