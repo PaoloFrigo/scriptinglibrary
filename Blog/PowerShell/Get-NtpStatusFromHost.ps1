@@ -32,7 +32,7 @@ function Get-NTPStatusFromHost {
             This shows the NTP Status for all the workstation in AD.
 
         .Notes
-              Author: Paolo Frigo - paolofrigo@gmail.com
+              Author: Paolo Frigo - https://www.scriptinglibrary.com
 
     #>
     Param(
