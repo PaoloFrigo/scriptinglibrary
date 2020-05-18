@@ -35,7 +35,7 @@ function Set-HighPerformance
             Set-HighPerformance for all the workstations in AD.
 
         .Notes
-              Author: Paolo Frigo - paolofrigo@gmail.com
+              Author: Paolo Frigo - https://www.scriptinglibrary.com
      #>
      Param(
         [Parameter(Mandatory=$true,
