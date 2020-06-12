@@ -3,8 +3,7 @@
 :: Converts all MarkDowns files passed as arguments into different 
 :: formats and saves them into a separate folder.
 ::
-:: AUTHOR:              Paolo Frigo, paolofrigo@gmail.com 
-::                      https://www.scriptinglibrary.com
+:: AUTHOR:   Paolo Frigo    https://www.scriptinglibrary.com
 ::
 :: REQUIREMENTS:    
 ::      pandoc (https://pandoc.org/)
