@@ -23,7 +23,7 @@
    Remove the current proxy settings for the user.
 
 .NOTES
-   Author Paolo Frigo, paolofrigo@gmail.com  https://www.scriptinglibrary.com
+   Author Paolo Frigo,  https://www.scriptinglibrary.com
 #>
 
 function Get-Proxy (){
