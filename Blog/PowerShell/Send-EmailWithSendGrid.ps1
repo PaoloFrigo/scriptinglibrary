@@ -23,6 +23,12 @@ function Send-EmailWithSendGrid {
         [Parameter(Mandatory=$true)]
         [String] $To,
 
+        [Parameter(Mandatory=$false)]
+        [String] $Cc,
+
+        [Parameter(Mandatory=$false)]
+        [String] $Bcc,
+
         [Parameter(Mandatory=$true)]
         [string] $ApiKey,
 
@@ -39,12 +45,17 @@ function Send-EmailWithSendGrid {
     $headers.Add("Content-Type", "application/json")
 
     $jsonRequest = [ordered]@{
-                            personalizations= @(@{to = @(@{email =  "$To"})
-                                subject = "$SubJect" })
+                            personalizations= @(
+                                @{
+                                    to = @(@{email =  "$To"}
+                                )
+                                   subject = "$SubJect" }
+                                )
                                 from = @{email = "$From"}
                                 content = @( @{ type = "text/plain"
-                                            value = "$Body" }
-                                )} | ConvertTo-Json -Depth 10
+                                            value = "$Body" })
+                            } | ConvertTo-Json -Depth 10
+
     Invoke-RestMethod   -Uri "https://api.sendgrid.com/v3/mail/send" -Method Post -Headers $headers -Body $jsonRequest 
 
 }
