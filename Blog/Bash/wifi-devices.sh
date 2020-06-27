@@ -3,7 +3,7 @@
 #  
 # This scripts uses and requires NMAP, creates a report with all hosts connected to the SUBNET
 #
-# author: paolofrigo@gmail.com , https://www.scriptinglibrary.com 
+# author: Paolo Frigo https://www.scriptinglibrary.com 
 
 # CONFIGURE ACCORDING TO YOUR NEEDS
 REPORT_FILENAME="scan-$(date +%Y-%m-%d).txt"

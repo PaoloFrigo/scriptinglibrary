@@ -22,7 +22,7 @@
    gfwm "d:\" | Export-CSV "Report_D_drive_macros.csv"
 
 .NOTES
-   Author Paolo Frigo, paolofrigo@gmail.com  https://www.scriptinglibrary.com
+   Author Paolo Frigo  https://www.scriptinglibrary.com
 #>
 function Get-FilesWithMacros {
     [CmdletBinding()]

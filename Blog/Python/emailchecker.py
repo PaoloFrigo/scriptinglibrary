@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """ This script checks if an email address exists on a mailserver. """
 
-__author__ = "PAOLO FRIGO, | https://www.scriptinglibrary.com"
+__author__ = "PAOLO FRIGO | https://www.scriptinglibrary.com"
 
 import logging
 import argparse
@@ -19,7 +19,7 @@ if __name__ == "__main__":
                        exists on a mailserver. """,
         usage="\n./emailchecker.py email@address \
               \n./emailchecker.py -h \t\tfor help",
-        epilog="""Author : Paolo Frigo, paolofrigo@gmail.com """,
+        epilog="""Author : Paolo Frigo""",
     )
 
     PARSER.add_argument("emailaddress", help="email_address")

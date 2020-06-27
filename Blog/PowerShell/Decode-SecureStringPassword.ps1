@@ -11,7 +11,7 @@
    Decode-SecureStringPassword -password SecureString
 
 .Notes
-    Author: Paolo Frigo - paolofrigo@gmail.com , https://www.scriptinglibrary.com
+    Author: Paolo Frigo  https://www.scriptinglibrary.com
 
 #>
 function Decode-SecureStringPassword {

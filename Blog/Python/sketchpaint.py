@@ -2,11 +2,11 @@
 # It's one of my first python pet project
 # All variable and function names are in Italian.
 
-#SketchPynt -v 0.1, PF, paolofrigo(at)gmail.com 
+#SketchPynt -v 0.1, Paolo Frigo 
 import Tkinter, tkColorChooser, string, tkMessageBox, cPickle, tkFileDialog
 
 VERSIONE="SketchPynt! v0.1"
-AUTORE="SketchPynt!\n[PF] Paolo Frigo,2009\npaolofrigo(at)gmail.com"
+AUTORE="SketchPynt!\n[PF] Paolo Frigo"
 #DEFAULT, Impostazioni predefinite
 COLORE="#000000"     #Colore della matita 
 SFONDO="#FFFFFF"     #Colore di sfondo e della gomma

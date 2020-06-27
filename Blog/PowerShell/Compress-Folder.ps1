@@ -27,7 +27,7 @@ function Compress-Folder {
         Creates an archive named "temp01.zip" and it removes the folder when finished.
 
     .NOTES
-        Author: paolofrigo@gmail.com, https://www.scriptinglibrary.com
+        Author: Paolo Frigo  https://www.scriptinglibrary.com
 
     #>
     [CmdletBinding()]  # Add cmdlet features.

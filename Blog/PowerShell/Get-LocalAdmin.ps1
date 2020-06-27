@@ -22,7 +22,7 @@
              Get Local admin list for all the workstation in AD.
 
         .Notes
-              Author: Paolo Frigo - paolofrigo@gmail.com ,  https://www.scriptinglibrary.com
+              Author: Paolo Frigo  https://www.scriptinglibrary.com
 
  #>
     param (

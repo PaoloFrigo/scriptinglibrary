@@ -34,7 +34,7 @@ function Get-RemoteRdpSession {
         Get-RemoteRdpSession  -computername "server1", "server2" -state DISC
 
     .NOTES
-        Author: paolofrigo@gmail.com, https://www.scriptinglibrary.com
+        Author: Paolo Frigo https://www.scriptinglibrary.com
     #>
 
     [CmdletBinding()]

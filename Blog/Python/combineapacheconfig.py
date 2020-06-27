@@ -1,7 +1,7 @@
 #!/usr/bin/python
 """ This script combines your APACHE httpd.conf with all included files\
    into one and redirects it to the standard output. """
-__author__ = "ben", "PAOLO FRIGO, paolofrigo@gmail.com | www.scriptinglibrary.com"
+__author__ = "ben", "PAOLO FRIGO | www.scriptinglibrary.com"
 
 import os
 import os.path
