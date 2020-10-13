@@ -15,8 +15,6 @@ $InactivityPeriod = (Get-Date).Adddays(-($NumberOfDays))
 
 $StaleObjectSearch = @{
     Filter = {LastLogonTimeStamp -lt $InactivityPeriod}
-    ResultPageSize = 2000 
-    resultSetSize =  $null
     Properties = "Name", "OperatingSystem", "SamAccountName", "DistinguishedName"
 }
 
