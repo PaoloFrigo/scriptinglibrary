@@ -1,5 +1,7 @@
 ﻿#requires -module ActiveDirectory
 
+# Paolo Frigo, https://www.scriptinglibrary.com
+
 # Generates a Report for the AD replication status and AD DC Diagnosis
 
 $DATE = get-date -Format "yyyy-MM-dd"
