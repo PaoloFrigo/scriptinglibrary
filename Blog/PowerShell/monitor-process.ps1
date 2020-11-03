@@ -2,7 +2,7 @@
 
 # This script will monitor the chosen processes and output the selected informations onto a csv file.
 
-$ProcessName = "vprc*"
+$ProcessName = "*"
 $LogFile = $PSScriptRoot+"\MyCustomLogs.csv"
 
 
