@@ -13,7 +13,7 @@ if ((Test-Path $LogFile) -eq $False){
 
 $datetime = Get-Date -Format "dd/M/yyyy hh:mm:ss"
 $total_mem=(systeminfo | Select-String 'Total Physical Memory:').ToString().Split(':')[1].Replace(" ", "")
-$processes=get-process $ProcessName| Select PM, CPU, Name, Id #Selected fields for the processes
+$processes=get-process $ProcessName| Select-Object PM, CPU, Name, Id #Selected fields for the processes
 
 foreach ($proc in $processes){
      Add-Content -Value "$($datetime), $($proc.Name), $($proc.ID), $($proc.CPU), $([math]::Round($proc.PM/(1024*1024),2))MB, $($total_mem)" -Path $LogFile 
