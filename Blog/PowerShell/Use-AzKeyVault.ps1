@@ -1,3 +1,5 @@
+#requires -module Az
+
 #Paolo Frigo, https://www.scriptinglibrary.com
 
 #Connect to your Azure account
