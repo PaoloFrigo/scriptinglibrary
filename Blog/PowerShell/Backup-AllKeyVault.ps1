@@ -3,7 +3,7 @@
 Function Backup-MyKeyVault {
  <#
     .SYNOPSIS
-    Backup Azure KeyVault keys, certs and sectres
+    Backup Azure Key Vault keys, certs and secrets
 
     .DESCRIPTION
     This funciton creates a ZIP archive containing all keys, secrets and certificates stored in your Azure Key Vault.
