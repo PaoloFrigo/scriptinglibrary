@@ -24,7 +24,7 @@ function Add-FileToBlobStorage{
         [string]
         $file,
         [Parameter(Mandatory=$true)]
-        [ValidateScript({$_ -match "https" -and $_ -match "\?"})]
+        [ValidateScript({$_ -match "https\:\/\/(.)*\.blob.core.windows.net\/(.)*\?(.)*"})]
         [string]
         $connectionstring
     )
