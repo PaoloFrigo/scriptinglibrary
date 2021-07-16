@@ -1,6 +1,6 @@
 Rem Paolo Frigo, https://scriptinglibrary.com
 
-Rem The original author of thi snippet is CRAIG SCHELLENBERG
+Rem The original author of this snippet is CRAIG SCHELLENBERG
 Rem https://www.sikich.com/insight/how-to-perform-file-server-migrations-using-robocopy-part-1/
 
 Rem REPLACE
