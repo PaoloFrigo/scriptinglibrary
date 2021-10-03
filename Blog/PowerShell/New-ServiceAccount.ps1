@@ -16,7 +16,7 @@ function New-ServiceAccount {
         [string]
         $description,
          [Parameter(Mandatory=$true)]
-        [SecureString]
+        [String]
         $password,
          [Parameter(Mandatory=$true)]
         [string]
