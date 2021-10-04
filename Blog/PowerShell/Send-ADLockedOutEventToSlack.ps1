@@ -24,6 +24,6 @@ $BodyTemplate = @"
 if (Search-ADAccount -LockedOut){
     foreach ($user in (Search-ADAccount -LockedOut)){
         $body = $BodyTemplate.Replace("DOMAIN_USERNAME","$user").Replace("DATETIME",$(Get-Date)).Replace("CHANNELNAME","$ChannelName")
-        Invoke-RestMethod -uri $SlackChannelUri -Method Post -body $body -ContentType 'application/json'
+        Invoke-RestMethod -uri $SlackChannelUri -Method Post -body $bodytemplate -ContentType 'application/json'
     }
 }
