@@ -69,7 +69,7 @@ Function Backup-MyKeyVault {
                 $Filename = "$($MyVaultName)-$($datetime).zip"
 
                 Compress-Archive -Path "$($MyVaultName)/*" -DestinationPath "$Filename"
-                Remove-Item -Recurse -Force ./azkeyvscriptinglib14521
+                Remove-Item -Recurse -Force $MyVaultName
                 Write-output "EXPORTED from `"$MyVaultName`" to `"$Filename`": `n $KeyCounter keys `n $CertCounter certificates `n $SecretCounter secrets "
             }
             else{
