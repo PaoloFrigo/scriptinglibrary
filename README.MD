@@ -16,6 +16,10 @@ Scripting Library is a collection of scripts and experiences shared by IT Pros, 
 
 This work is licensed under a Creative Commons Attribution 4.0 International License.
 
+## SHOW YOUR SUPPORT
+Don't forget to give a ⭐️ if you found this repository useful!
+
+
 ## DISCLAIMER
 THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
