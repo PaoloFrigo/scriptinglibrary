@@ -20,6 +20,7 @@ If ($IsAdminCenterInstalled){
         Exit 0
     }
 }
+$ProgressPreference = 'SilentlyContinue'
 Invoke-WebRequest -Uri $WAC_Online -OutFile $WAC_Installer
 #if CertificateThumbprint is defined and installed on the system will be used during the installation
 if ([bool](get-childitem cert: -recurse | where-object {$_.thumbprint -eq $CertificateThumbprint})){
