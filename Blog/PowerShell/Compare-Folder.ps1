@@ -32,27 +32,43 @@ param (
     [string]$Folder2  
 )
 
+
+function Get-RelativePath {
+    param (
+        [string]$FullPath,
+        [string]$BasePath
+    )
+    return $FullPath.Substring($BasePath.Length).TrimStart('\') 
+}
+
+
 $folder1Hashes = Get-ChildItem -Path $Folder1 -File -Recurse |
     ForEach-Object {
         [PSCustomObject]@{
-            RelativePath = $_.FullName.Substring($Folder1.Length)
+            RelativePath = $_.FullName.Substring((Resolve-Path $Folder1).Path.Length + 1) 
             Hash = (Get-FileHash $_.FullName).Hash
         }
     }
+
 
 $folder2Hashes = Get-ChildItem -Path $Folder2 -File -Recurse |
     ForEach-Object {
         [PSCustomObject]@{
-            RelativePath = $_.FullName.Substring($Folder2.Length)
+            RelativePath = $_.FullName.Substring((Resolve-Path $Folder2).Path.Length + 1) 
             Hash = (Get-FileHash $_.FullName).Hash
         }
     }
 
-$differences = Compare-Object $folder1Hashes $folder2Hashes -Property RelativePath, Hash -PassThru
+
+$differences = Compare-Object -ReferenceObject $folder1Hashes -DifferenceObject $folder2Hashes -Property RelativePath, Hash -PassThru 
 
 if ($differences) {
     Write-Host "Differences found:"
-    $differences | Format-Table
+    $differences | Format-Table -Property RelativePath, Hash, SideIndicator
+    Write-Host "`nExplanation of SideIndicator:"
+    Write-Host "'<= ' means the file exists only in Folder1."
+    Write-Host "'=> ' means the file exists only in Folder2."
+    Write-Host "'   ' means the file exists in both folders but has different content."
 } else {
-    Write-Host "The folders are identical."
+    Write-Host "The folders are identical (both file content and structure)."
 }
